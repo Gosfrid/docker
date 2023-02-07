@@ -20,6 +20,8 @@ pipeline {
             steps {
                 sh '''
                       python3 -m pytest ./prime/tests/test_unit.py
+                      python3 -m pytest ./converter/tests/test_unit.py
+                      python3 -m pytest ./main/tests/test_unit.py
                    '''
             }
         }
@@ -35,13 +37,27 @@ pipeline {
             }
         }
 
-        stage('connect via ssh deploy server and run app') {
-            steps {
-                sh '''
-                   <\>
-                '''
-            }
-        }
+        // stage('connect via ssh deploy server and run app') {
+        //     steps {
+        //         sh '''
+        //            #!/bin/bash
+        //            ssh -i /home/jenkins/.ssh/training.pem -o StrictHostKeyChecking=no ubuntu@10.1.1.10 << EOF
+        //            docker system prune -a -f
+        //            docker-compose -f /home/ubuntu/API2/docker-compose.yaml up -d
+        //         '''
+        //     }
+        // }
+
+        // stage('connect via ssh deploy server and run app') {
+        //     steps {
+        //         sh '''
+        //            #!/bin/bash
+        //            ssh -i /home/jenkins/.ssh/training.pem -o StrictHostKeyChecking=no ubuntu@10.1.1.10 << EOF
+        //            docker system prune -a -f
+        //            docker-compose -f /home/ubuntu/API2/docker-compose.yaml up -d
+        //         '''
+        //     }
+        // }
         
     }
 }
