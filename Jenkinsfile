@@ -5,17 +5,28 @@ pipeline {
                     defaultValue: false,
                     description: 'Read Jenkinsfile and exit.')
 		    }
-    stages {
-        // stage('Pre') { hello push
-        //     steps {
-        //         sh 'ansible-playbook -v -i /home/jenkins/.jenkins/workspace/FlaskApp/inventory.yaml /home/jenkins/.jenkins/workspace/FlaskApp/playbook.yaml'
-        //     }
-        // }
-        // stage('Test') { 
-        //     steps {
-        //         sh 'sudo pytest /home/jenkins/.jenkins/workspace/FlaskApp/'
-        //     }
-        // }
+// Ansible playbook for python modules goes here
+// - name: Install python pip
+//   ansible.builtin.apt:
+//     name: python3-pip
+// - name: Install multi python packages
+//   ansible.builtin.pip:
+//     name:
+//       - Flask
+//       - pytest
+//       - flask_testing
+//       - requests_mock
+    // stages {
+    //     stage('Pre') { hello push
+    //         steps {
+    //             sh 'ansible-playbook -v -i /home/jenkins/.jenkins/workspace/FlaskApp/inventory.yaml /home/jenkins/.jenkins/workspace/FlaskApp/playbook.yaml'
+    //         }
+    //     }
+    //     stage('Test') { 
+    //         steps {
+    //             sh 'sudo pytest /home/jenkins/.jenkins/workspace/FlaskApp/'
+    //         }
+    //     }
         stage('Unit Tests') {
             steps {
                 sh '''
